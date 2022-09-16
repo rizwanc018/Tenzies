@@ -1,0 +1,22 @@
+export default function SixthFace(props) {
+    const style = {
+        backgroundColor: props.isHeld ? "#59E391" : "white"
+    }
+    return (
+        <div className="die sixth-face"
+            style={style}
+            onClick={props.hold}
+        >
+            <div className="column">
+                <span className="pip"></span>
+                <span className="pip"></span>
+                <span className="pip"></span>
+            </div>
+            <div className="column">
+                <span className="pip"></span>
+                <span className="pip"></span>
+                <span className="pip"></span>
+            </div>
+        </div>
+    )
+}
