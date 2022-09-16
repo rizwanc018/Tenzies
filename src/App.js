@@ -1,8 +1,6 @@
 import { useState, useEffect} from "react";
 import { nanoid } from "nanoid";
 import Confetti from 'react-confetti'
-// import { useWindowSize } from "react-use-window-size";
-// import Die from "./components/Die"
 import FirstFace from "./components/FirstFace";
 import SecondFace from "./components/SecondFace";
 import ThirdFace from "./components/ThirdFace";
@@ -21,7 +19,7 @@ export default function App() {
         const allHeld = allDice.every(die => die.isHeld)
         const firstValue = allDice[0].value
         const allSame = allDice.every(die => die.value === firstValue)
-        allHeld && allSame && setTenzies(true) && setLeaderBoard()
+        allHeld && allSame && setTenzies(true)
     }, [allDice])
 
     function generateNewDie() {
@@ -46,7 +44,7 @@ export default function App() {
             localStorage.setItem('leaderBoard', leaderBoard)
         } 
     }
-// if won set leaderboard
+// set leaderboard
     tenzies && setLeaderBoard()
 
 
@@ -69,24 +67,11 @@ export default function App() {
         }))
     }
 
-
-    // function rollDice() {
-    //     setAllDice(oldDice => oldDice.map(die => {
-    //         return die.isHeld ? die :
-    //         {...die, value: Math.ceil(Math.random() * 6)}
-    //     }))
-    // }
-
     function holdDice(id) {
         setAllDice(oldDice => oldDice.map(die => {
             return id === die.id ? { ...die, isHeld: !die.isHeld } : die
         }))
     }
-
-    // const diceElemnts = allDice.map(dice => (
-    //     // <Die key={dice.id} value={dice.value} isHeld={dice.isHeld} id={dice.id} hold={holdDice} />
-    //     <Die key={dice.id} value={dice.value} isHeld={dice.isHeld} hold={() => holdDice(dice.id)} />
-    // ))
 
     const diceElemnts = allDice.map(dice => {
         if (dice.value === 1) {
