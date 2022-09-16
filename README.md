@@ -68,13 +68,3 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
-
-
-ToDo
------
-put dots
-track number of rolls
-track time took
-save best time to local storage
-
-Dice - https://betterprogramming.pub/creating-dice-in-flexbox-in-css-a02a5d85e516
