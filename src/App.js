@@ -1,4 +1,4 @@
-import { useState, useEffect} from "react";
+import { useState, useEffect } from "react";
 import { nanoid } from "nanoid";
 import Confetti from 'react-confetti'
 import FirstFace from "./components/FirstFace";
@@ -39,12 +39,12 @@ export default function App() {
     }
 
     function setLeaderBoard() {
-        if( leaderBoard === 0 || rollCount < leaderBoard) {
+        if (leaderBoard === 0 || rollCount < leaderBoard) {
             leaderBoard = rollCount
             localStorage.setItem('leaderBoard', leaderBoard)
-        } 
+        }
     }
-// set leaderboard
+    // set leaderboard
     tenzies && setLeaderBoard()
 
 
@@ -74,24 +74,26 @@ export default function App() {
     }
 
     const diceElemnts = allDice.map(dice => {
+        let diceFace;
         if (dice.value === 1) {
-            return (<FirstFace key={dice.id} value={dice.value} isHeld={dice.isHeld} hold={() => holdDice(dice.id)} />)
+            diceFace = (<FirstFace key={dice.id} value={dice.value} isHeld={dice.isHeld} hold={() => holdDice(dice.id)} />)
         }
         if (dice.value === 2) {
-            return (<SecondFace key={dice.id} value={dice.value} isHeld={dice.isHeld} hold={() => holdDice(dice.id)} />)
+            diceFace = (<SecondFace key={dice.id} value={dice.value} isHeld={dice.isHeld} hold={() => holdDice(dice.id)} />)
         }
         if (dice.value === 3) {
-            return (<ThirdFace key={dice.id} value={dice.value} isHeld={dice.isHeld} hold={() => holdDice(dice.id)} />)
+            diceFace = (<ThirdFace key={dice.id} value={dice.value} isHeld={dice.isHeld} hold={() => holdDice(dice.id)} />)
         }
         if (dice.value === 4) {
-            return (<FourthFace key={dice.id} value={dice.value} isHeld={dice.isHeld} hold={() => holdDice(dice.id)} />)
+            diceFace = (<FourthFace key={dice.id} value={dice.value} isHeld={dice.isHeld} hold={() => holdDice(dice.id)} />)
         }
         if (dice.value === 5) {
-            return (<FifthFace key={dice.id} value={dice.value} isHeld={dice.isHeld} hold={() => holdDice(dice.id)} />)
+            diceFace = (<FifthFace key={dice.id} value={dice.value} isHeld={dice.isHeld} hold={() => holdDice(dice.id)} />)
         }
         if (dice.value === 6) {
-            return (<SixthFace key={dice.id} value={dice.value} isHeld={dice.isHeld} hold={() => holdDice(dice.id)} />)
+            diceFace = (<SixthFace key={dice.id} value={dice.value} isHeld={dice.isHeld} hold={() => holdDice(dice.id)} />)
         }
+        return diceFace
     })
 
     return (
@@ -100,7 +102,7 @@ export default function App() {
             <div className="title-bar">
                 <h1 className="title">Tenzies</h1>
             </div>
-            <Scoreboard count={rollCount} leaderBoard={leaderBoard}/>
+            <Scoreboard count={rollCount} leaderBoard={leaderBoard} />
             <p className="instructions">Roll until all dice are the same. Click each die to freeze it at its current value between rolls.</p>
             <div className="die-conatiner">
                 {diceElemnts}
